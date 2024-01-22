@@ -20,10 +20,12 @@ import androidx.annotation.Nullable;
 
 import org.dslul.openboard.inputmethod.compat.AppWorkaroundsUtils;
 import org.dslul.openboard.inputmethod.keyboard.internal.keyboard_parser.LocaleKeyTextsKt;
+import org.dslul.openboard.inputmethod.keyboard.KeyboardTheme;
 import org.dslul.openboard.inputmethod.latin.InputAttributes;
 import org.dslul.openboard.inputmethod.latin.R;
 import org.dslul.openboard.inputmethod.latin.RichInputMethodManager;
 import org.dslul.openboard.inputmethod.latin.common.Colors;
+import org.dslul.openboard.inputmethod.latin.common.DefaultColors;
 import org.dslul.openboard.inputmethod.latin.spellcheck.AndroidSpellCheckerService;
 import org.dslul.openboard.inputmethod.latin.utils.AsyncResultHolder;
 import org.dslul.openboard.inputmethod.latin.utils.MoreKeysUtilsKt;
@@ -46,7 +48,7 @@ public class SettingsValues {
     // Float.NEGATIVE_INFINITE and Float.MAX_VALUE. Currently used for auto-correction settings.
     private static final String FLOAT_MAX_VALUE_MARKER_STRING = "floatMaxValue";
     private static final String FLOAT_NEGATIVE_INFINITY_MARKER_STRING = "floatNegativeInfinity";
-    public static final float DEFAULT_SIZE_SCALE = 1.0f; // 100%
+    public static final float DEFAULT_SIZE_SCALE = 0.85f; // 100%
     public static final float AUTO_CORRECTION_DISABLED_THRESHOLD = Float.MAX_VALUE;
 
     // From resources:
@@ -138,7 +140,7 @@ public class SettingsValues {
         mInputAttributes = inputAttributes;
 
         // Get the settings preferences
-        mAutoCap = prefs.getBoolean(Settings.PREF_AUTO_CAP, true) && ScriptUtils.scriptSupportsUppercase(mLocale);
+        mAutoCap = prefs.getBoolean(Settings.PREF_AUTO_CAP, false) && ScriptUtils.scriptSupportsUppercase(mLocale);
         mVibrateOn = Settings.readVibrationEnabled(prefs, res);
         mSoundOn = Settings.readKeypressSoundEnabled(prefs, res);
         mKeyPreviewPopupOn = Settings.readKeyPreviewPopupEnabled(prefs, res);
@@ -156,7 +158,7 @@ public class SettingsValues {
         mSpaceLanguageSlide = prefs.getBoolean(Settings.PREF_SPACE_LANGUAGE_SLIDE, false);
         mShowsEmojiKey = prefs.getBoolean(Settings.PREF_SHOW_EMOJI_KEY, false);
         mUsePersonalizedDicts = prefs.getBoolean(Settings.PREF_KEY_USE_PERSONALIZED_DICTS, true);
-        mUseDoubleSpacePeriod = prefs.getBoolean(Settings.PREF_KEY_USE_DOUBLE_SPACE_PERIOD, true)
+        mUseDoubleSpacePeriod = prefs.getBoolean(Settings.PREF_KEY_USE_DOUBLE_SPACE_PERIOD, false)
                 && inputAttributes.mIsGeneralTextInput;
         mBlockPotentiallyOffensive = Settings.readBlockPotentiallyOffensive(prefs, res);
         mAutoCorrectEnabled = Settings.readAutoCorrectEnabled(prefs);
@@ -234,7 +236,7 @@ public class SettingsValues {
 
         mAddToPersonalDictionary = prefs.getBoolean(Settings.PREF_ADD_TO_PERSONAL_DICTIONARY, false);
         mUseContactsDictionary = prefs.getBoolean(AndroidSpellCheckerService.PREF_USE_CONTACTS_KEY, false);
-        mCustomNavBarColor = prefs.getBoolean(Settings.PREF_NAVBAR_COLOR, false);
+        mCustomNavBarColor = prefs.getBoolean(Settings.PREF_NAVBAR_COLOR, true);
         mNarrowKeyGaps = prefs.getBoolean(Settings.PREF_NARROW_KEY_GAPS, true);
         mSettingsValuesForSuggestion = new SettingsValuesForSuggestion(
                 mBlockPotentiallyOffensive,

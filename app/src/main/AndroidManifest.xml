@@ -36,8 +36,8 @@
                  .setPackage("org.dslul.openboard.inputmethod.latin"));
          }
          </pre> -->
-    <permission android:name="@string/hide_soft_input_permission"
-                android:protectionLevel="signature" />
+    <!-- <permission android:name="@string/hide_soft_input_permission"
+                android:protectionLevel="signature" /> -->
 
     <application android:label="@string/english_ime_name"
             android:icon="@mipmap/ic_launcher"

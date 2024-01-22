@@ -261,7 +261,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static boolean readAutoCorrectEnabled(final SharedPreferences prefs) {
-        return prefs.getBoolean(PREF_AUTO_CORRECTION, true);
+        return prefs.getBoolean(PREF_AUTO_CORRECTION, false);
     }
 
     public void toggleAutoCorrect() {
@@ -386,7 +386,7 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static boolean readDeleteSwipeEnabled(final SharedPreferences prefs) {
-        return prefs.getBoolean(PREF_DELETE_SWIPE, true);
+        return prefs.getBoolean(PREF_DELETE_SWIPE, false);
     }
 
     public static boolean readAutospaceAfterPunctuationEnabled(final SharedPreferences prefs) {
@@ -556,11 +556,19 @@ public final class Settings implements SharedPreferences.OnSharedPreferenceChang
     }
 
     public static Colors getColorsForCurrentTheme(final Context context, final SharedPreferences prefs) {
+        String jkPreferedDefaultThemeKey = Settings.PREF_THEME_COLORS_NIGHT;
+        String jkPreferedDefaultThemeDefault = KeyboardTheme.THEME_DARKER;
+
         boolean isNight = ResourceUtils.isNight(context.getResources());
+
         if (prefs.getBoolean(PREF_FORCE_OPPOSITE_THEME, false)) isNight = !isNight;
         final String themeColors = (isNight && prefs.getBoolean(PREF_THEME_DAY_NIGHT, context.getResources().getBoolean(R.bool.day_night_default)))
-                ? prefs.getString(Settings.PREF_THEME_COLORS_NIGHT, KeyboardTheme.THEME_DARKER)
-                : prefs.getString(Settings.PREF_THEME_COLORS, KeyboardTheme.THEME_LIGHT);
+                ? prefs.getString(jkPreferedDefaultThemeKey, jkPreferedDefaultThemeDefault)
+                : prefs.getString(jkPreferedDefaultThemeKey, jkPreferedDefaultThemeDefault);
+
+        // JK override default here.
+
+
         final String themeStyle = prefs.getString(Settings.PREF_THEME_STYLE, KeyboardTheme.STYLE_MATERIAL);
 
         return KeyboardTheme.getThemeColors(themeColors, themeStyle, context, prefs);

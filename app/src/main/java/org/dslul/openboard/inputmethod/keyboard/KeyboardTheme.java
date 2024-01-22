@@ -131,8 +131,9 @@ public final class KeyboardTheme {
     }
 
     public static Colors getThemeColors(final String themeColors, final String themeStyle, final Context context, final SharedPreferences prefs) {
-        final boolean hasBorders = prefs.getBoolean(Settings.PREF_THEME_KEY_BORDERS, false);
-        switch (themeColors) {
+        final boolean hasBorders = prefs.getBoolean(Settings.PREF_THEME_KEY_BORDERS, true);
+        final String themeColors2 = THEME_DARKER;
+        switch (themeColors2) {
             case THEME_USER:
                 return new DefaultColors(
                         themeStyle,
@@ -195,6 +196,7 @@ public final class KeyboardTheme {
                         Color.parseColor("#FFFFFF"),
                         Color.parseColor("#80FFFFFF")
                 );
+            default:
             case THEME_DARKER:
                 return new DefaultColors(
                         themeStyle,
@@ -230,7 +232,6 @@ public final class KeyboardTheme {
                     return new DynamicColors(context, themeStyle, hasBorders);
                 }
             case THEME_LIGHT:
-            default:
                 return new DefaultColors(
                         themeStyle,
                         hasBorders,
