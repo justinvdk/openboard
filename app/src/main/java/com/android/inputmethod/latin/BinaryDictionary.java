@@ -7,28 +7,27 @@
 package com.android.inputmethod.latin;
 
 import android.text.TextUtils;
-import org.dslul.openboard.inputmethod.latin.utils.Log;
+import helium314.keyboard.latin.utils.Log;
 import android.util.SparseArray;
 
 import androidx.annotation.NonNull;
 
-import org.dslul.openboard.inputmethod.annotations.UsedForTesting;
-import org.dslul.openboard.inputmethod.latin.Dictionary;
-import org.dslul.openboard.inputmethod.latin.NgramContext;
-import org.dslul.openboard.inputmethod.latin.SuggestedWords.SuggestedWordInfo;
-import org.dslul.openboard.inputmethod.latin.common.ComposedData;
-import org.dslul.openboard.inputmethod.latin.common.Constants;
-import org.dslul.openboard.inputmethod.latin.common.FileUtils;
-import org.dslul.openboard.inputmethod.latin.common.InputPointers;
-import org.dslul.openboard.inputmethod.latin.common.StringUtils;
-import org.dslul.openboard.inputmethod.latin.makedict.DictionaryHeader;
-import org.dslul.openboard.inputmethod.latin.makedict.FormatSpec;
-import org.dslul.openboard.inputmethod.latin.makedict.FormatSpec.DictionaryOptions;
-import org.dslul.openboard.inputmethod.latin.makedict.UnsupportedFormatException;
-import org.dslul.openboard.inputmethod.latin.makedict.WordProperty;
-import org.dslul.openboard.inputmethod.latin.settings.SettingsValuesForSuggestion;
+import helium314.keyboard.latin.Dictionary;
+import helium314.keyboard.latin.NgramContext;
+import helium314.keyboard.latin.SuggestedWords.SuggestedWordInfo;
+import helium314.keyboard.latin.common.ComposedData;
+import helium314.keyboard.latin.common.Constants;
+import helium314.keyboard.latin.common.FileUtils;
+import helium314.keyboard.latin.common.InputPointers;
+import helium314.keyboard.latin.common.StringUtils;
+import helium314.keyboard.latin.makedict.DictionaryHeader;
+import helium314.keyboard.latin.makedict.FormatSpec;
+import helium314.keyboard.latin.makedict.FormatSpec.DictionaryOptions;
+import helium314.keyboard.latin.makedict.UnsupportedFormatException;
+import helium314.keyboard.latin.makedict.WordProperty;
+import helium314.keyboard.latin.settings.SettingsValuesForSuggestion;
 import com.android.inputmethod.latin.utils.BinaryDictionaryUtils;
-import org.dslul.openboard.inputmethod.latin.utils.JniUtils;
+import helium314.keyboard.latin.utils.JniUtils;
 import com.android.inputmethod.latin.utils.WordInputEventForPersonalization;
 
 import java.io.File;
@@ -52,13 +51,9 @@ public final class BinaryDictionary extends Dictionary {
     public static final int DICTIONARY_MAX_WORD_LENGTH = 48;
     public static final int MAX_PREV_WORD_COUNT_FOR_N_GRAM = 3;
 
-    @UsedForTesting
     public static final String UNIGRAM_COUNT_QUERY = "UNIGRAM_COUNT";
-    @UsedForTesting
     public static final String BIGRAM_COUNT_QUERY = "BIGRAM_COUNT";
-    @UsedForTesting
     public static final String MAX_UNIGRAM_COUNT_QUERY = "MAX_UNIGRAM_COUNT";
-    @UsedForTesting
     public static final String MAX_BIGRAM_COUNT_QUERY = "MAX_BIGRAM_COUNT";
 
     public static final int NOT_A_VALID_TIMESTAMP = -1;
@@ -364,7 +359,6 @@ public final class BinaryDictionary extends Dictionary {
         return getMaxProbabilityOfExactMatchesNative(mNativeDict, codePoints);
     }
 
-    @UsedForTesting
     public boolean isValidNgram(final NgramContext ngramContext, final String word) {
         return getNgramProbability(ngramContext, word) != NOT_A_PROBABILITY;
     }
@@ -505,7 +499,6 @@ public final class BinaryDictionary extends Dictionary {
         return true;
     }
 
-    @UsedForTesting
     public void updateEntriesForInputEvents(final WordInputEventForPersonalization[] inputEvents) {
         if (!isValidDictionary()) {
             return;
@@ -620,7 +613,6 @@ public final class BinaryDictionary extends Dictionary {
         }
     }
 
-    @UsedForTesting
     public String getPropertyForGettingStats(final String query) {
         if (!isValidDictionary()) {
             return "";

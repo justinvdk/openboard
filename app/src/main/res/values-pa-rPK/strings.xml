@@ -23,10 +23,10 @@
     <string name="use_personalized_dicts">نجی بݨاۓ سجھا</string>
     <string name="main_dictionary">مکھ لغت</string>
     <string name="auto_correction_threshold_mode_very_aggressive">بہت پرجوش</string>
-    <string name="subtype_hi_ZZ">ہِنگریزی</string>
+    <string name="subtype_hi_Latn">ہِنگریزی</string>
     <string name="subtype_emoji">ایموجی</string>
     <string name="keyboard_layout_set">کیبورڈ دی چوݨ</string>
-    <string name="delete_dict">مٹاؤ</string>
+    <string name="delete">مٹاؤ</string>
     <string name="user_dict_settings_add_menu_title">شامل کرو</string>
     <string name="user_dict_settings_add_locale_option_name">بولی</string>
     <string name="auto_cap">خود بخود اکھر کیپیٹل ورتݨ</string>
@@ -41,7 +41,6 @@
     <string name="setup_finish_action">پورا ہویا</string>
     <string name="subtype_locale">بولی</string>
     <string name="settings">سیٹنگاں</string>
-    <string name="check_for_updates_now">تازہ کرو</string>
     <string name="user_dict_settings_add_shortcut_option_name">شورٹکٹ:</string>
     <string name="use_double_space_period">دو خالی تھاں ڈنڈی</string>
     <string name="settings_screen_gesture">سنکیت نال اینپُٹ کرن</string>

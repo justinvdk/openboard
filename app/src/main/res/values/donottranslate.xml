@@ -10,21 +10,23 @@
          explicit keyboard layout. The string resource name must be "subtype_<locale>" or
          "subtype_with_layout_<locale>. Please refer to strings.xml for these resources. -->
     <string-array name="subtype_locale_exception_keys">
-        <item>en_US</item>
-        <item>en_GB</item>
-        <item>es_US</item>
-        <item>hi_ZZ</item>
-        <item>hu_ZZ</item>
-        <item>sr_ZZ</item>
+        <item>en-US</item>
+        <item>en-GB</item>
+        <item>es-US</item>
+        <item>hi-Latn</item>
+        <item>xdq</item>
+        <item>sr-Latn</item>
     </string-array>
 
     <!-- Subtype locale whose name should be displayed in Locale.ROOT. -->
     <string-array name="subtype_locale_displayed_in_root_locale">
-        <item>hi_ZZ</item>
-        <item>sr_ZZ</item>
+        <item>hi-Latn</item>
+        <item>xdq</item>
+        <item>sr-Latn</item>
     </string-array>
-    <string name="subtype_in_root_locale_hi_ZZ" translatable="false" tools:keep="@string/subtype_in_root_locale_hi_ZZ">Hinglish</string>
-    <string name="subtype_in_root_locale_sr_ZZ" translatable="false" tools:keep="@string/subtype_in_root_locale_sr_ZZ">Srpski</string>
+    <string name="subtype_in_root_locale_hi_Latn" translatable="false" tools:keep="@string/subtype_in_root_locale_hi_Latn">Hinglish</string>
+     <string name="subtype_in_root_locale_xdq" translatable="false" tools:keep="@string/subtype_in_root_locale_xdq">Хайдаҡьан</string>
+    <string name="subtype_in_root_locale_sr_Latn" translatable="false" tools:keep="@string/subtype_in_root_locale_sr_Latn">Srpski</string>
 
     <!-- Generic subtype label -->
     <string name="subtype_generic" translatable="false">%s</string>
@@ -78,8 +80,6 @@
     <!-- Description for Arabic (PC) subtype. -->
     <string name="subtype_arabic_pc" translatable="false">%s (PC)</string>
 
-    <!-- permission name as string to avoid issues with debug build -->
-    <string name="hide_soft_input_permission">org.dslul.openboard.inputmethod.latin.HIDE_SOFT_INPUT</string>
     <!-- App slogan-->
     <string name="app_slogan" translatable="false">100% FOSS keyboard, based on AOSP.</string>
     <!-- default value for auto-day/night setting -->
@@ -92,18 +92,39 @@
     </string-array>
     <string-array name="language_switch_key_entries">
         <item>@string/auto_correction_threshold_mode_off</item> <!-- maybe use a separate string -->
-        <item>@string/language_switch_key_switch_subtype</item>
+        <item>@string/switch_language</item>
         <item>@string/language_switch_key_switch_input_method</item>
         <item>@string/language_switch_key_switch_both</item>
     </string-array>
-    <string-array name="show_more_keys_values">
+    <string-array name="show_popup_keys_values">
         <item>normal</item>
         <item>more</item>
         <item>all</item>
     </string-array>
-    <string-array name="show_more_keys_entries">
-        <item>@string/show_more_keys_normal</item>
-        <item>@string/show_more_keys_more</item>
-        <item>@string/show_more_keys_all</item>
+    <string-array name="show_popup_keys_entries">
+        <item>@string/show_popup_keys_normal</item>
+        <item>@string/show_popup_keys_more</item>
+        <item>@string/show_popup_keys_all</item>
+    </string-array>
+
+    <string-array name="horizontal_space_swipe_values">
+        <item>move_cursor</item>
+        <item>switch_language</item>
+        <item>none</item>
+    </string-array>
+    <string-array name="horizontal_space_swipe_entries">
+        <item>@string/space_swipe_move_cursor_entry</item>
+        <item>@string/switch_language</item>
+        <item>@string/action_none</item>
+    </string-array>
+    <string-array name="vertical_space_swipe_values">
+        <item>move_cursor</item>
+        <item>switch_language</item>
+        <item>none</item>
+    </string-array>
+    <string-array name="vertical_space_swipe_entries">
+        <item>@string/space_swipe_move_cursor_entry</item>
+        <item>@string/switch_language</item>
+        <item>@string/action_none</item>
     </string-array>
 </resources>

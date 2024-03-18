@@ -7,19 +7,20 @@
 package com.android.inputmethod.keyboard;
 
 import android.graphics.Rect;
-import org.dslul.openboard.inputmethod.latin.utils.Log;
+import helium314.keyboard.latin.utils.Log;
 
 import androidx.annotation.NonNull;
 
-import org.dslul.openboard.inputmethod.keyboard.Key;
-import org.dslul.openboard.inputmethod.keyboard.internal.TouchPositionCorrection;
-import org.dslul.openboard.inputmethod.latin.common.Constants;
-import org.dslul.openboard.inputmethod.latin.utils.JniUtils;
+import helium314.keyboard.keyboard.Key;
+import helium314.keyboard.keyboard.internal.TouchPositionCorrection;
+import helium314.keyboard.latin.common.Constants;
+import helium314.keyboard.latin.utils.JniUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class ProximityInfo {
     private static final String TAG = ProximityInfo.class.getSimpleName();
@@ -65,7 +66,7 @@ public class ProximityInfo {
         mSortedKeys = sortedKeys;
         mGridNeighbors = new List[mGridSize];
         if (minWidth == 0 || height == 0) {
-            // No proximity required. Keyboard might be more keys keyboard.
+            // No proximity required. Keyboard might be popup keys keyboard.
             return;
         }
         computeNearestNeighbors();
@@ -192,7 +193,7 @@ public class ProximityInfo {
                             touchPositionCorrection.getRadius(row) * hitBoxDiagonal;
                 }
                 if (DEBUG) {
-                    Log.d(TAG, String.format(
+                    Log.d(TAG, String.format(Locale.US,
                             "  [%2d] row=%d x/y/r=%7.2f/%7.2f/%5.2f %s code=%s", infoIndex, row,
                             sweetSpotCenterXs[infoIndex], sweetSpotCenterYs[infoIndex],
                             sweetSpotRadii[infoIndex], (row < rows ? "correct" : "default"),

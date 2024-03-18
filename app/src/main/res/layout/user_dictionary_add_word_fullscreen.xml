@@ -6,6 +6,7 @@
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_dict_settings_add_dialog_top"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -80,7 +81,8 @@
                     android:imeOptions="actionDone"
                     android:hint="250"
                     android:inputType="number"
-                    android:maxLength="3" />
+                    android:maxLength="3"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/user_dictionary_add_locale_label"
@@ -113,19 +115,19 @@
         android:baselineAligned="false">
 
         <Button
-            style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/user_dictionary_delete_button"
+            android:backgroundTint="@color/accent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginHorizontal="10dp"
-            android:text="@string/delete_dict"
+            android:text="@string/delete"
             android:textColor="@android:color/white">
         </Button>
 
         <Button
-            style="@style/Widget.AppCompat.Button.Colored"
             android:id="@+id/user_dictionary_save_button"
+            android:backgroundTint="@color/accent"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

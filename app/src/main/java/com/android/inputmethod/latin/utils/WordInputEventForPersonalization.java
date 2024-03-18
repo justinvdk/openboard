@@ -6,14 +6,13 @@
 
 package com.android.inputmethod.latin.utils;
 
-import org.dslul.openboard.inputmethod.latin.utils.Log;
+import helium314.keyboard.latin.utils.Log;
 
-import org.dslul.openboard.inputmethod.annotations.UsedForTesting;
-import org.dslul.openboard.inputmethod.latin.NgramContext;
-import org.dslul.openboard.inputmethod.latin.common.StringUtils;
-import org.dslul.openboard.inputmethod.latin.define.DecoderSpecificConstants;
-import org.dslul.openboard.inputmethod.latin.settings.SpacingAndPunctuations;
-import org.dslul.openboard.inputmethod.latin.utils.DictionaryInfoUtils;
+import helium314.keyboard.latin.NgramContext;
+import helium314.keyboard.latin.common.StringUtils;
+import helium314.keyboard.latin.define.DecoderSpecificConstants;
+import helium314.keyboard.latin.settings.SpacingAndPunctuations;
+import helium314.keyboard.latin.utils.DictionaryInfoUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +33,6 @@ public final class WordInputEventForPersonalization {
     // Time stamp in seconds.
     public final int mTimestamp;
 
-    @UsedForTesting
     public WordInputEventForPersonalization(final CharSequence targetWord,
             final NgramContext ngramContext, final int timestamp) {
         mTargetWord = StringUtils.toCodePointArray(targetWord);

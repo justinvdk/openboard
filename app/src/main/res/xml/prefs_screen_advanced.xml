@@ -10,67 +10,79 @@
     android:title="@string/settings_screen_advanced"
     android:key="screen_advanced">
 
-    <SwitchPreferenceCompat
-        android:key="pref_always_incognito_mode"
+    <SwitchPreference
+        android:key="always_incognito_mode"
         android:title="@string/incognito"
         android:summary="@string/prefs_force_incognito_mode_summary"
         android:defaultValue="false" />
 
-    <org.dslul.openboard.inputmethod.latin.settings.SeekBarDialogPreference
-        android:key="pref_key_longpress_timeout"
+    <helium314.keyboard.latin.settings.SeekBarDialogPreference
+        android:key="key_longpress_timeout"
         android:title="@string/prefs_key_longpress_timeout_settings"
         latin:minValue="@integer/config_min_longpress_timeout"
         latin:maxValue="@integer/config_max_longpress_timeout"
         latin:stepValue="@integer/config_longpress_timeout_step" />
 
-    <SwitchPreferenceCompat
-        android:key="pref_space_trackpad"
-        android:title="@string/space_trackpad"
-        android:summary="@string/space_trackpad_summary"
-        android:defaultValue="true" />
+    <ListPreference
+        android:defaultValue="none"
+        android:entries="@array/horizontal_space_swipe_entries"
+        android:entryValues="@array/horizontal_space_swipe_values"
+        android:key="horizontal_space_swipe"
+        android:persistent="true"
+        android:summary="%s"
+        android:title="@string/show_horizontal_space_swipe" />
 
-    <SwitchPreferenceCompat
-        android:key="pref_delete_swipe"
+    <ListPreference
+        android:defaultValue="none"
+        android:entries="@array/vertical_space_swipe_entries"
+        android:entryValues="@array/vertical_space_swipe_values"
+        android:key="vertical_space_swipe"
+        android:persistent="true"
+        android:summary="%s"
+        android:title="@string/show_vertical_space_swipe" />
+
+    <SwitchPreference
+        android:key="delete_swipe"
         android:title="@string/delete_swipe"
         android:summary="@string/delete_swipe_summary"
         android:defaultValue="true" />
 
-    <SwitchPreferenceCompat
+    <SwitchPreference
         android:key="prefs_long_press_keyboard_to_change_lang"
         android:title="@string/prefs_long_press_keyboard_to_change_lang"
         android:summary="@string/prefs_long_press_keyboard_to_change_lang_summary"
         android:persistent="true"
         android:defaultValue="true" />
 
-    <SwitchPreferenceCompat
-        android:key="pref_enable_emoji_alt_physical_key"
+    <SwitchPreference
+        android:key="enable_emoji_alt_physical_key"
         android:title="@string/prefs_enable_emoji_alt_physical_key"
         android:summary="@string/prefs_enable_emoji_alt_physical_key_summary"
         android:defaultValue="true"
         android:persistent="true" />
 
-    <SwitchPreferenceCompat
-        android:key="pref_show_setup_wizard_icon"
+    <SwitchPreference
+        android:key="show_setup_wizard_icon"
         android:title="@string/show_setup_wizard_icon"
         android:summary="@string/show_setup_wizard_icon_summary"
         android:defaultValue="true"
         android:persistent="true" />
 
     <ListPreference
-        android:key="pref_more_more_keys"
-        android:title="@string/show_more_keys_title"
-        android:entries="@array/show_more_keys_entries"
-        android:entryValues="@array/show_more_keys_values"
+        android:key="more_popup_keys"
+        android:title="@string/show_popup_keys_title"
+        android:entries="@array/show_popup_keys_entries"
+        android:entryValues="@array/show_popup_keys_values"
         android:defaultValue="normal"
         android:summary="%s"
         android:persistent="true" />
 
     <Preference
-        android:key="pref_backup_restore"
+        android:key="backup_restore"
         android:title="@string/backup_restore_title" />
 
     <PreferenceScreen
-            android:fragment="org.dslul.openboard.inputmethod.latin.settings.DebugSettingsFragment"
+            android:fragment="helium314.keyboard.latin.settings.DebugSettingsFragment"
             android:key="screen_debug"
             android:title="@string/debug_settings_title"
             android:defaultValue="false"
@@ -79,25 +91,20 @@
     <PreferenceCategory
         android:title="@string/settings_category_experimental">
 
-        <SwitchPreferenceCompat
-            android:key="pref_space_language_slide"
-            android:title="@string/space_language_slide"
-            android:summary="@string/space_language_slide_summary"
-            android:defaultValue="false" />
-
-        <SwitchPreferenceCompat
-            android:key="pref_url_detection"
+        <SwitchPreference
+            android:key="url_detection"
             android:title="@string/url_detection_title"
             android:summary="@string/url_detection_summary"
             android:defaultValue="false" />
 
         <Preference
-            android:key="custom_symbols_layout"
-            android:title="@string/customize_symbols" />
+            android:key="custom_background_image"
+            android:title="@string/customize_background_image" />
 
         <Preference
-            android:key="custom_shift_symbols_layout"
-            android:title="@string/customize_shift_symbols" />
+            android:key="custom_symbols_number_layouts"
+            android:title="@string/customize_symbols_number_layouts"
+            android:summary="@string/customize_symbols_number_layouts_summary" />
 
         <Preference
             android:key="load_gesture_library"
